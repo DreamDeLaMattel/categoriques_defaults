@@ -1,0 +1,64 @@
+\documentclass{article}
+\usepackage{multirow,bigdelim}
+%\usepackage{AMSMATH}
+\usepackage{float}
+
+\usepackage[top=3cm,bottom=3.5cm]{geometry} 
+\usepackage{esvect}
+\usepackage{blindtext}
+\usepackage[cp1252]{inputenc}
+\usepackage[catalan]{babel}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\lhead{Projecte An\`alisi de Dades Categ\`oriques}
+\rhead{16-1-2016}
+
+
+
+\begin{document}
+\SweaveOpts{concordance=TRUE}
+Samuel Garcia Companys, Francesc Aguirre Plans, Josep Gangonells Belart\\
+\hspace{4cm}
+\tableofcontents
+\newpage
+\section{Introducci\'o}
+\label{sec:ex1}
+
+
+
+\section{Plantejament del problema}
+\label{sec:ex2}
+
+
+\subsection{Disseny de l'experiment}
+
+\subsubsection{Variable resposta}
+
+Pagament predeterminat proper mes(categ\`orica bin\`aria)\\
+
+\subsubsection{Variables explicatives}
+
+Sexe(categ\`orica bin\`aria)\\
+Educaci\'o(categ\`orica ordinal amb 3 nivells)\\
+Estat civil(categ\`orica bin\`aria)\\
+
+\subsection{Hip\`otesis plantejades}
+
+
+
+
+\section{Resultats}
+\label{sec:ex3}
+
+
+
+
+
+\section{Conclusions}
+\label{sec:ex4}
+
+
+
+\section{Annex}
+\label{sec:ex5}
+\end{document}
