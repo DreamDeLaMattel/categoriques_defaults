@@ -80,8 +80,8 @@ str(dades)
 #creando tabla de contingencia (?) , creando vectores para hacer un frame 
 table(dades$Prestec, dades$Falta); nivell1<-c(2756,1555);nivell2<-c(8212, 2767);nivell3<-c(11572,2210);nivell4<-c(824,104)
 default.prestec = as.data.frame(rbind(nivell1,nivell2,nivell3,nivell4))
-names(default.prestec)<-c("Pagament", "Falta") #asignación de nombres en las columnas
-chisq.test(default.prestec) #test de independencia chi quadrado
+names(default.prestec)<-c("Pagament", "Falta")
+ind1c<-chisq.test(default.prestec)
 
 ###interpretaciones del p-valor bajo
 ###1. It provides strong evidence to suggest that gender and ice cream flavour preference are dependent or have some association. (This is a probabilistic interpretation, but it is not very clear what it means on a practical level.) 
@@ -91,15 +91,19 @@ chisq.test(default.prestec) #test de independencia chi quadrado
 table(dades$Educacio, dades$Falta); edu1<-c(8549,2036); edu2<-c(10700,3330);edu3<-c(3680,1237);edu4<-c(116,7)
 default.Educacio = as.data.frame(rbind(edu1,edu2,edu3,edu4))
 names(default.Educacio)<-c("Pagament", "Falta")
-chisq.test(default.Educacio)
+ind2c<-chisq.test(default.Educacio)
 
 
-table(dades$Estat.c, dades$Falta); casat<-c(10453,3206); solter<-c(12623,3341); altres<-(239,84)
+table(dades$Estat.c, dades$Falta); casat<-c(10453,3206); solter<-c(12623,3341); altres<-c(239,84)
 default.Estat.c= as.data.frame(rbind(casat,solter, altres))
 names(default.Estat.c)<-c("Pagament", "Falta")
-chisq.test(default.Estat.c)
+ind3c<-chisq.test(default.Estat.c)
 
 table(dades$Edat, dades$Falta); menors30<-c(7421,2197); menors50<-c(13941,3761);menors80<-c(2002,678)
 default.Edat = as.data.frame(rbind(menors30, menors50, menors80))
 names(default.Edat)<-c("Pagament", "Falta")
-chisq.test(default.Edat)
+ind4c<-chisq.test(default.Edat)
+
+
+indcpvalues<-c(ind1c$p.value, ind2c$p.value, ind3c$p.value, ind4c$p.value)
+names(indcpvalues)<-c("Prestec","Educacio","Estat.Civil","Edat")
