@@ -104,7 +104,7 @@ barplot(tFalta,main="Falta de pagament")
 table(dades$Prestec, dades$Falta); nivell1<-c(2756,1555);nivell2<-c(8212, 2767);nivell3<-c(11572,2210);nivell4<-c(824,104)
 default.prestec = as.data.frame(rbind(nivell1,nivell2,nivell3,nivell4))
 
-names(default.prestec)<-c("Pagament", "Falta") #asignaci de nombres en las columnas
+names(default.prestec)<-c("Pagament", "Falta") #asignaci??? de nombres en las columnas
 chisq.test(default.prestec) #test de independencia chi quadrado
 
 names(default.prestec)<-c("Pagament", "Falta")
@@ -142,4 +142,25 @@ ind4c<-chisq.test(default.Edat)
 
 indcpvalues<-c(ind1c$p.value, ind2c$p.value, ind3c$p.value, ind4c$p.value)
 names(indcpvalues)<-c("Prestec","Educacio","Estat.Civil","Edat")
+
+
+
+
+# REGRESIO LOGISTICA ####
+
+
+dades$Prestec<-as.numeric(as.character(dades$Prestec))
+dades$Sexe<-as.numeric(dades$Sexe,levels=c("M","F"))
+dades$Educacio<-as.numeric(dades$Educacio,levels=c(1,2,3,4))     #fins que no decidim, poso 4
+dades$Estat.c<-as.numeric(dades$Estat.c,levels=c(1,2,3))     #fins que no decidim, poso 3
+dades$Edat<-as.numeric(as.character(dades$Edat))
+dades$Falta<-as.numeric(as.character(dades$Falta))
+
+summary(dades)
+
+par(mfrow=c(2,2))
+plot(dades$Edat,dades$Falta,xlab="Edat",ylab="Falta de pagament")
+plot(dades$Educacio,dades$Falta,xlab="Educacio",ylab="Falta de pagament")
+plot(dades$Estat.c,dades$Falta,xlab="Estat civil",ylab="Falta de pagament")
+plot(dades$Prestec,dades$Falta,xlab="Prestec",ylab="Falta de pagament")
 
